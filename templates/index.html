@@ -2,6 +2,34 @@
 
 {% block content %}
     <div class="hero-section">
-        <h1 class="hero-title">{{ translations.welcome }}</h1>
+        <div class="hero-content">
+            <h1 class="hero-title">{{ translations.welcome }}</h1>
+            <p class="hero-subtitle">{{ translations.description }}</p>
+        </div>
+    </div>
+    <div class="dashboard-container">
+        <h1 class="dashboard-title">{{ translations.welcome }}</h1>
+        <div class="dashboard">
+            <div class="dashboard-card">
+                <h2>{{ translations.nav_schemes }}</h2>
+                <p>{{ "explore_various_government_schemes_and_subsidies_available_for_farmers_across_different_categories"|translate(translations) }}</p>
+                <a href="{{ url_for('schemes', lang=lang) }}" class="btn btn-primary">{{ "view_schemes"|translate(translations) }}</a>
+            </div>
+            <div class="dashboard-card">
+                <h2>{{ translations.nav_crops }}</h2>
+                <p>{{ "discover_crop_varieties_and_regional_agricultural_insights"|translate(translations) }}</p>
+                <a href="{{ url_for('crops', lang=lang) }}" class="btn btn-primary">{{ "view_crops"|translate(translations) }}</a>
+            </div>
+            <div class="dashboard-card">
+                <h2>{{ translations.nav_helplines }}</h2>
+                <p>{{ "access_24/7_helpline_services_for_farmer_assistance"|translate(translations) }}</p>
+                <a href="{{ url_for('helplines', lang=lang) }}" class="btn btn-primary">{{ "view_helplines"|translate(translations) }}</a>
+            </div>
+            <div class="dashboard-card">
+                <h2>{{ translations.nav_banks }}</h2>
+                <p>{{ "find_nearby_banks_and_financial_support_options"|translate(translations) }}</p>
+                <a href="{{ url_for('banks', lang=lang) }}" class="btn btn-primary">{{ "view_banks"|translate(translations) }}</a>
+            </div>
+        </div>
     </div>
 {% endblock %}

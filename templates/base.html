@@ -34,27 +34,27 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ translations.get(lang, translations.select_language) }}
-    </a>
-    <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="languageDropdown">
-        {% set args = request.args.to_dict(flat=False) %}
-        {% set filtered_args = {} %}
-        {% for k, v in args.items() %}
-            {% if k != 'lang' %}
-                {% do filtered_args.update({k: v}) %}
-            {% endif %}
-        {% endfor %}
-        <li><a class="dropdown-item" href="{{ url_for(request.endpoint, lang='hi', crop_id=request.view_args.get('crop_id') if request.endpoint == 'crop_schemes' else None) }}">{{ translations.hindi }}</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for(request.endpoint, lang='kn', crop_id=request.view_args.get('crop_id') if request.endpoint == 'crop_schemes' else None) }}">{{ translations.kannada }}</a></li>  
+                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ translations.get(lang, translations.select_language) }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="languageDropdown">
+                            {% set args = request.args.to_dict(flat=False) %}
+                            {% set filtered_args = {} %}
+                            {% for k, v in args.items() %}
+                                {% if k != 'lang' %}
+                                    {% do filtered_args.update({k: v}) %}
+                                {% endif %}
+                            {% endfor %}
+                            <li><a class="dropdown-item" href="{{ url_for(request.endpoint, lang='hi', crop_id=request.view_args.get('crop_id') if request.endpoint == 'crop_schemes' else None) }}">{{ translations.hindi }}</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for(request.endpoint, lang='kn', crop_id=request.view_args.get('crop_id') if request.endpoint == 'crop_schemes' else None) }}">{{ translations.kannada }}</a></li>
                             <li><a class="dropdown-item" href="{{ url_for(request.endpoint, lang='en', crop_id=request.view_args.get('crop_id') if request.endpoint == 'crop_schemes' else None) }}">{{ translations.english }}</a></li>
-    </ul>
-</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container mt-4">
+    <div class="container mt-5">
         {% block content %}{% endblock %}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -72,6 +72,8 @@ cursor.execute('''
 ''')
 
 ###
+# Drop existing region_translations table
+cursor.execute('DROP TABLE IF EXISTS region_translations')
 # Create region_translations table
 cursor.execute('''
     CREATE TABLE region_translations (
