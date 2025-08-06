@@ -80,7 +80,15 @@
     "market_trends_desc": "कृषि उत्पादों की बिक्री के लिए नवीनतम रुझान और सुझाव।",
     "enter_youtube_url": "YouTube URL दर्ज करें",
     "update_video": "वीडियो अपडेट करें",
-    "nav_resources": "संसाधन"
+    "nav_resources": "संसाधन",
 
 
+    "view_schemes": "योजनाएँ देखें",
+    "view_crops": "फसलें देखें",
+    "view_helplines": "हेल्पलाइन देखें",
+    "view_banks": "बैंक देखें",
+    "explore_various_government_schemes_and_subsidies_available_for_farmers_across_different_categories": "विभिन्न सरकारी योजनाओं और सब्सिडियों का पता लगाएँ जो विभिन्न श्रेणियों में किसानों के लिए उपलब्ध हैं।",
+    "discover_crop_varieties_and_regional_agricultural_insights": "फसल किस्मों और क्षेत्रीय कृषि जानकारी की खोज करें।",
+    "access_24/7_helpline_services_for_farmer_assistance": "किसानों की सहायता के लिए 24/7 हेल्पलाइन सेवाओं तक पहुँचें।",
+    "find_nearby_banks_and_financial_support_options": "नजदीकी बैंकों और वित्तीय सहायता विकल्पों को खोजें।"
 }

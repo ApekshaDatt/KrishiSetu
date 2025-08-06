@@ -10,6 +10,13 @@ app = Flask(__name__)
 # Enable Jinja2 'do' extension
 app.jinja_env.add_extension('jinja2.ext.do')
 
+# Register custom filter for translation
+def translate_filter(text, translations_dict):
+    key = text.lower().replace(' ', '_')
+    return translations_dict.get(key, text)
+
+app.jinja_env.filters['translate'] = translate_filter
+
 
 def get_db_connection():
     conn = sqlite3.connect('data.db')

@@ -50,20 +50,21 @@ body {
 
 
 /* Hero Section (Landing Page) */
+/* Hero Section (Landing Page) */
 .hero-section {
     background-image: url('/static/images/farmer.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
     position: relative;
+    margin-bottom: 2rem;
 }
-
 
 .hero-section::before {
     content: '';
@@ -76,6 +77,11 @@ body {
     z-index: 1;
 }
 
+.hero-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+}
 
 .hero-title {
     font-size: 3.5rem;
@@ -85,59 +91,68 @@ body {
     margin: 0;
 }
 
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin: 0;
+}
 
-/* Content Container */
-.container {
-    background-color: #FFFFFF; /* White content background */
+/* Dashboard */
+.dashboard-container {
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: -4rem; /* Overlap hero section slightly */
 }
 
-
-/* List Group (Schemes, Helplines, Banks) */
-.list-group-item {
-    background-color: #E8F5E9; /* Light green for odd items */
-    border-color: #C8E6C9;
-    color: #4A3728;
+.dashboard-title {
+    font-size: 2rem;
+    color: #27802b;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-
-.list-group-item:nth-child(even) {
-    background-color: #FFFFFF; /* White for even items */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-
-/* Headings */
-h1, h5 {
-    color: #27802b; /* Dark green for headings */
+.dashboard-card {
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
 
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
 
-/* Buttons (if any) */
+.dashboard-card h2 {
+    color: #27802b;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.dashboard-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
 .btn-primary {
-    background-color: #FBC02D; /* Golden yellow */
-    border-color: #FBC02D;
+    background-color: #FBC02D;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
     color: #4A3728;
+    text-decoration: none;
+    display: inline-block;
 }
-
 
 .btn-primary:hover {
-    background-color: #FFB300; /* Darker yellow on hover */
-    border-color: #FFB300;
+    background-color: #FFB300;
 }
-
-
-/* Language Dropdown */
-.form-select {
-    background-color: #FFFFFF;
-    color: #4A3728;
-    border-color: #C8E6C9;
-    left: 50;
-    width: 20%;
-}
-
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -145,11 +160,19 @@ h1, h5 {
         font-size: 2rem;
     }
 
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
 
     .container {
         margin-top: -2rem;
         padding: 1rem;
     }
+}
 
 
 iframe {
@@ -159,4 +182,4 @@ iframe {
             margin: 100px auto;
             display: block;
         }
-}
+
