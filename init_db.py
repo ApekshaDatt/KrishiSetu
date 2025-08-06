@@ -20,7 +20,8 @@ cursor.execute('''
         description_en TEXT NOT NULL,
         eligibility_en TEXT NOT NULL,
         category TEXT NOT NULL,
-        document_path TEXT       
+        website_url TEXT,
+        document_url TEXT       
                
     )
 ''')
@@ -65,8 +66,8 @@ cursor.execute('''
         image_path TEXT NOT NULL,
         region_id INTEGER,
         
-        FOREIGN KEY (scheme_id) REFERENCES schemes(id),
-        PRIMARY KEY (scheme_id, language)
+        FOREIGN KEY (crop_id) REFERENCES schemes(id),
+        PRIMARY KEY (crop_id, language)
     )
 ''')
 
@@ -92,33 +93,33 @@ cursor.executemany('INSERT INTO regions (name_en) VALUES (?)', regions)
 # Insert schemes (from previous + new from document)
 schemes = [
     # Existing schemes from previous setup
-    ('Paramparagat Krishi Vikas Yojana (PKVY)', 'Promotes organic farming through cluster-based approach; financial assistance for organic inputs and certification.', 'All farmers willing to adopt organic farming practices; preference to small and marginal farmers.', 'Crop Production and Productivity',"docs/pkvy.pdf"),
-    ('National Food Security Mission (NFSM)', 'Increases production of rice, wheat, pulses, and coarse cereals through improved technology and input support.', 'Farmers in identified districts with potential for yield improvement; implementation by State Governments.', 'Crop Production and Productivity',"docs/nfsm.pdf"),
-    ('Soil Health Card Scheme', 'Provides detailed soil health report with nutrient recommendations every 2 years.', 'All farmers across the country; implemented by State Departments of Agriculture.', 'Crop Production and Productivity',"docs/soil_health_card.pdf"),
-    ('Sub-Mission on Seeds and Planting Material (SMSP)', 'Promotes production and distribution of quality seeds with financial assistance for infrastructure and certification.', 'Seed producing agencies, farmers, and private sector entities involved in seed production.', 'Crop Production and Productivity',None),
-    ('Mission for Integrated Development of Horticulture (MIDH)', 'Supports development of horticulture crops and cold chain infrastructure.', 'Farmers, SHGs, cooperatives, and private entrepreneurs in horticulture.', 'Crop Production and Productivity',None),
-    ('Pradhan Mantri Krishi Sinchai Yojana (PMKSY)', 'Ensures irrigation coverage and water-use efficiency; includes micro-irrigation, watershed, and canal projects.', 'All farmers; implemented through states with convergence of resources from related schemes.', 'Irrigation and Water Management',None),
-    ('Per Drop More Crop (PDMC)', 'Focused on micro-irrigation (drip and sprinkler) to save water and increase yield.', 'Farmers adopting micro-irrigation technologies; financial assistance provided by government.', 'Irrigation and Water Management',None),
-    ('Command Area Development and Water Management (CADWM)', 'Improves water use efficiency in irrigation commands through field channels and water users associations.', 'Farmers in command areas of major and medium irrigation projects.', 'Irrigation and Water Management',None),
-    ('Watershed Development Component (WDC-PMKSY)', 'Promotes rainwater harvesting, soil and moisture conservation in rainfed areas.', 'Farmers in watershed development areas, especially in hilly and dry regions.', 'Irrigation and Water Management',None),
-    ('Accelerated Irrigation Benefit Programme (AIBP)', 'Provides central assistance for faster completion of irrigation projects.', 'State governments implementing major/medium irrigation projects.', 'Irrigation and Water Management',None),
-    ('Kisan Credit Card (KCC)', 'Provides affordable credit to farmers for agricultural and allied activities.', 'Farmers, tenant farmers, and sharecroppers with valid land documents.', 'Credit and Insurance',None),
-    ('Agricultural Marketing Infrastructure (AMI)', 'Supports development of market infrastructure like warehouses and cold storages.', 'Farmers, cooperatives, and private entities involved in agricultural marketing.', 'Agricultural Marketing and Value Chain Development',None),
-    ('National Livestock Mission', 'Supports livestock, poultry, and fodder development to enhance farmer income.', 'Farmers engaged in livestock, poultry, or fodder production.', 'Allied Sectors (Livestock, Fisheries, etc.)',None),
-    ('Krishi Vigyan Kendra (KVK)', 'Offers training, demonstrations, and extension services to promote modern farming practices.', 'Farmers, rural youth, and extension workers.', 'Research, Education, and Extension',None),
-    ('Rural Infrastructure Development Fund (RIDF)', 'Provides loans for rural infrastructure like warehouses and cold storage to support agriculture.', 'State governments and eligible institutions; benefits farmers indirectly.', 'Infrastructure Development',None),
-    ('PM-KISAN', 'Provides ₹6,000 per year in three installments to support farmers’ income.', 'Indian farmers owning up to 2 hectares of land with a bank account and Aadhaar.', 'Welfare and Direct Benefit Transfer (DBT)',None),
+    ('Paramparagat Krishi Vikas Yojana (PKVY)', 'Promotes organic farming through cluster-based approach; financial assistance for organic inputs and certification.', 'All farmers willing to adopt organic farming practices; preference to small and marginal farmers.', 'Crop Production and Productivity',"https://drive.google.com/file/d/10JTpPwnPdkcei5cB5aGvRAEmI1EhiTGV/view?usp=drive_link","https://pgsindia-ncof.gov.in/home.aspx"),
+    ('National Food Security Mission (NFSM)', 'Increases production of rice, wheat, pulses, and coarse cereals through improved technology and input support.', 'Farmers in identified districts with potential for yield improvement; implementation by State Governments.', 'Crop Production and Productivity',"https://drive.google.com/file/d/1LZpf1ieIoD8NfRi7Y1v0JYr7guqsdgVl/view?usp=drive_link","https://www.nfsm.gov.in/"),
+    ('Soil Health Card Scheme', 'Provides detailed soil health report with nutrient recommendations every 2 years.', 'All farmers across the country; implemented by State Departments of Agriculture.', 'Crop Production and Productivity',"https://drive.google.com/file/d/15UTKL1chT3nHD0K9YBZbP1IF8n4hCLkp/view?usp=drive_link","https://soilhealth.dac.gov.in/home"),
+    ('Sub-Mission on Seeds and Planting Material (SMSP)', 'Promotes production and distribution of quality seeds with financial assistance for infrastructure and certification.', 'Seed producing agencies, farmers, and private sector entities involved in seed production.', 'Crop Production and Productivity',"https://drive.google.com/file/d/1ygTQdxgW6jIsqPMplnGCUF7VO3vAZ3kD/view?usp=drive_link","https://agriwelfare.gov.in/en/SeedsDiv"),
+    ('Mission for Integrated Development of Horticulture (MIDH)', 'Supports development of horticulture crops and cold chain infrastructure.', 'Farmers, SHGs, cooperatives, and private entrepreneurs in horticulture.', 'Crop Production and Productivity',"https://drive.google.com/file/d/1FZbraH_tM015U6-8p_z81SqltptgwiTG/view?usp=drive_link","https://midh.gov.in/"),
+    ('Pradhan Mantri Krishi Sinchai Yojana (PMKSY)', 'Ensures irrigation coverage and water-use efficiency; includes micro-irrigation, watershed, and canal projects.', 'All farmers; implemented through states with convergence of resources from related schemes.', 'Irrigation and Water Management',None,"https://pmksy.gov.in/"),
+    ('Per Drop More Crop (PDMC)', 'Focused on micro-irrigation (drip and sprinkler) to save water and increase yield.', 'Farmers adopting micro-irrigation technologies; financial assistance provided by government.', 'Irrigation and Water Management',None,"https://pdmc.da.gov.in/"),
+    ('Command Area Development and Water Management (CADWM)', 'Improves water use efficiency in irrigation commands through field channels and water users associations.', 'Farmers in command areas of major and medium irrigation projects.', 'Irrigation and Water Management',None,"https://cadwm.gov.in/"),
+    ('Watershed Development Component (WDC-PMKSY)', 'Promotes rainwater harvesting, soil and moisture conservation in rainfed areas.', 'Farmers in watershed development areas, especially in hilly and dry regions.', 'Irrigation and Water Management',None,"https://wdcpmksy.dolr.gov.in/"),
+    ('Accelerated Irrigation Benefit Programme (AIBP)', 'Provides central assistance for faster completion of irrigation projects.', 'State governments implementing major/medium irrigation projects.', 'Irrigation and Water Management',None,"https://pmksy-mowr.nic.in/aibp-mis/"),
+    ('Kisan Credit Card (KCC)', 'Provides affordable credit to farmers for agricultural and allied activities.', 'Farmers, tenant farmers, and sharecroppers with valid land documents.', 'Credit and Insurance',None,"https://fasalrin.gov.in/"),
+    ('Agricultural Marketing Infrastructure (AMI)', 'Supports development of market infrastructure like warehouses and cold storages.', 'Farmers, cooperatives, and private entities involved in agricultural marketing.', 'Agricultural Marketing and Value Chain Development',None,"https://dmi.gov.in/Schemeamigs.aspx"),
+    ('National Livestock Mission', 'Supports livestock, poultry, and fodder development to enhance farmer income.', 'Farmers engaged in livestock, poultry, or fodder production.', 'Allied Sectors (Livestock, Fisheries, etc.)',None,"https://nlm.udyamimitra.in/"),
+    ('Krishi Vigyan Kendra (KVK)', 'Offers training, demonstrations, and extension services to promote modern farming practices.', 'Farmers, rural youth, and extension workers.', 'Research, Education, and Extension',None,"https://icar.org.in/en/krishi-vigyan-kendras"),
+    ('Rural Infrastructure Development Fund (RIDF)', 'Provides loans for rural infrastructure like warehouses and cold storage to support agriculture.', 'State governments and eligible institutions; benefits farmers indirectly.', 'Infrastructure Development',None,"https://www.nabard.org/content1.aspx?id=573&catid=8&mid=8"),
+    ('PM-KISAN', 'Provides ₹6,000 per year in three installments to support farmers’ income.', 'Indian farmers owning up to 2 hectares of land with a bank account and Aadhaar.', 'Welfare and Direct Benefit Transfer (DBT)',None,"https://pmkisan.gov.in/homenew.aspx?aspxerrorpath=/BeneficiaryStatus_New.aspx"),
     # New schemes from document
-    ('PM Fasal Bima Yojana', 'Crop insurance against losses due to natural calamities, pests, or diseases.', 'Farmers growing notified crops in notified areas; premium shared with government.', 'Credit and Insurance',None),
-    ('Rashtriya Krishi Vikas Yojana (RKVY)', 'Supports general crop development and diversification through state-specific agricultural strategies.', 'Farmers and state governments implementing agricultural projects.', 'Crop Production and Productivity',None),
-    ('State Millet Mission', 'Promotes ragi production and processing through financial and technical support.', 'Farmers growing millets, especially in Karnataka.', 'Crop Production and Productivity',None),
-    ('Coffee Development Programme', 'Supports coffee growers with financial aid, training, and infrastructure development.', 'Coffee farmers and cooperatives in coffee-growing regions.', 'Crop Production and Productivity',None),
-    ('Spice Board Initiatives', 'Promotes production and export of spices like pepper and cardamom with subsidies and training.', 'Farmers growing spices, especially in hilly regions.', 'Crop Production and Productivity',None),
-    ('e-NAM (National Agriculture Market)', 'Facilitates online trading for better price discovery for crops like cotton and pulses.', 'Farmers and traders registered on the e-NAM platform.', 'Agricultural Marketing and Value Chain Development',None)
+    ('PM Fasal Bima Yojana', 'Crop insurance against losses due to natural calamities, pests, or diseases.', 'Farmers growing notified crops in notified areas; premium shared with government.', 'Credit and Insurance',None,"https://pmfby.gov.in/"),
+    ('Rashtriya Krishi Vikas Yojana (RKVY)', 'Supports general crop development and diversification through state-specific agricultural strategies.', 'Farmers and state governments implementing agricultural projects.', 'Crop Production and Productivity',"https://drive.google.com/file/d/1maotq9LUUJDOcsHzqjzO6MO8cFwuqWSQ/view?usp=drive_link","https://rkvy.da.gov.in/"),
+    ('State Millet Mission', 'Promotes ragi production and processing through financial and technical support.', 'Farmers growing millets, especially in Karnataka.', 'Crop Production and Productivity',"https://drive.google.com/file/d/1j1fh0YjdROo1J4RRrE95maLHU_FGEjzx/view?usp=drive_link","https://raitamitra.karnataka.gov.in/info-2/Organic+Farming+and+Millet+Promotional+Programs/en"),
+    ('Coffee Development Programme', 'Supports coffee growers with financial aid, training, and infrastructure development.', 'Coffee farmers and cooperatives in coffee-growing regions.', 'Crop Production and Productivity',"https://drive.google.com/file/d/11up88gB412d7wPp2wJ67WHk0rK_2EuwJ/view?usp=drive_link","https://coffeeboard.gov.in/index.aspx"),
+    ('Spice Board Initiatives', 'Promotes production and export of spices like pepper and cardamom with subsidies and training.', 'Farmers growing spices, especially in hilly regions.', 'Crop Production and Productivity',"https://drive.google.com/file/d/1515xy58t1g_AcH0ILzgeeVGjiVw5Bh1_/view?usp=drive_link","https://www.indianspices.com/box5_programmes_schemes.html"),
+    ('e-NAM (National Agriculture Market)', 'Facilitates online trading for better price discovery for crops like cotton and pulses.', 'Farmers and traders registered on the e-NAM platform.', 'Agricultural Marketing and Value Chain Development',None,"https://www.enam.gov.in/web/")
 ]
 
 # Insert schemes
-cursor.executemany('INSERT INTO schemes (name_en, description_en, eligibility_en, category,document_path) VALUES (?, ?, ?, ?,?)', schemes)
+cursor.executemany('INSERT INTO schemes (name_en, description_en, eligibility_en, category,document_url, website_url) VALUES (?, ?, ?, ?, ?, ?)', schemes)
 
 # Insert crops
 crops = [

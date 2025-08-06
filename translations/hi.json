@@ -31,5 +31,19 @@
     "category_infrastructure_development": "बुनियादी ढांचा विकास",
     "category_welfare_and_direct_benefit_transfer_dbt": "कल्याण और प्रत्यक्ष लाभ हस्तांतरण (DBT)",
     "download_document": "दस्तावेज़ डाउनलोड करें",
-    "select_language":"भाषा चुने"
+    "select_language":"भाषा चुने",
+    "official_website": "आधिकारिक वेबसाइट",
+    "Ragi (Finger Millet)": "Ragi (नाचनी)",
+        "Groundnut": "मूंगफली",
+        "Maize": "मक्का",
+        "Paddy (Rice)": "चावल (धान)",
+        "Tomato": "टमाटर",
+        "Beans": "बीन्स",
+        "Coffee": "कॉफी",
+        "Arecanut": "सुपारी",
+        "Pepper": "काली मिर्च",
+        "Cardamom": "इलायची",
+        "Cotton": "कपास",
+        "Red Gram (Tur)": "अरहर (तूर)",
+        "Jowar (Sorghum)": "ज्वार"
 }

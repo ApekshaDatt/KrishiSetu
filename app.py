@@ -78,7 +78,7 @@ def schemes():
         if lang == 'en':
             cursor.execute('''
                 SELECT name_en AS name, description_en AS description,
-                       eligibility_en AS eligibility, category , document_path
+                       eligibility_en AS eligibility, category , website_url, document_url
                 FROM schemes
                 WHERE category = ?
             ''', (category,))
@@ -87,7 +87,7 @@ def schemes():
                 SELECT COALESCE(st.name, s.name_en) AS name,
                        COALESCE(st.description, s.description_en) AS description,
                        COALESCE(st.eligibility, s.eligibility_en) AS eligibility,
-                       s.category , s.document_path
+                       s.category , s.website_url, s.document_url
                 FROM schemes s
                 LEFT JOIN scheme_translations st ON s.id = st.scheme_id AND st.language = ?
                 WHERE s.category = ?
@@ -132,6 +132,8 @@ def crops():
                           crops=crops, selected_region=region_id, lang=lang)
 
 
+
+
 @app.route('/crop_schemes/<int:crop_id>')
 def crop_schemes(crop_id):
     lang = request.args.get('lang', 'en')
@@ -149,7 +151,7 @@ def crop_schemes(crop_id):
     if lang == 'en':
         cursor.execute('''
             SELECT s.name_en AS name, s.description_en AS description,
-                   s.eligibility_en AS eligibility, s.category, s.document_path
+                   s.eligibility_en AS eligibility, s.category, s.document_url
             FROM schemes s
             JOIN crop_schemes cs ON s.id = cs.scheme_id
             WHERE cs.crop_id = ?
@@ -159,7 +161,7 @@ def crop_schemes(crop_id):
             SELECT COALESCE(st.name, s.name_en) AS name,
                    COALESCE(st.description, s.description_en) AS description,
                    COALESCE(st.eligibility, s.eligibility_en) AS eligibility,
-                   s.category, s.document_path
+                   s.category, s.document_url
             FROM schemes s
             JOIN crop_schemes cs ON s.id = cs.scheme_id
             LEFT JOIN scheme_translations st ON s.id = st.scheme_id AND st.language = ?

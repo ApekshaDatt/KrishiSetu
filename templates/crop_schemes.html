@@ -19,7 +19,7 @@
                         <p><strong>{{ translations.eligibility_label }}:</strong> {{ scheme.eligibility }}</p>
                         <p><strong>{{ translations.category_label | default('Category') }}:</strong> 
                            {{ translations['category_' + scheme.category|replace(' ', '_')|replace('(', '')|replace(')', '')|replace('.', '')|replace(',', '')|lower] or scheme.category }}
-                        {% if scheme.document_path %}
+                        {% if scheme.document_url %}
                                 <a href="{{ url_for('crop_schemes', crop_id=crop_id, lang=lang) }}"></a>
                             {% endif %}
                         </p>

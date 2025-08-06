@@ -22,7 +22,7 @@
                     <div class="card">
                         <img src="{{ url_for('static', filename=crop.image_path) }}" class="card-img-top" alt="{{ crop.name_en }}" style="height: 200px; object-fit: cover;">
                         <div class="card-body">
-                            <p class="text-muted">DEBUG: ID={{ crop['id']|default('None') }}</p>
+                            <p class="text-muted"></p>
                             <h5 class="card-title">
                                 {% if crop['id'] %}
                                     <a href="{{ url_for('crop_schemes', crop_id=crop['id'], lang=lang) }}">{{ crop['name_en'] }}</a>

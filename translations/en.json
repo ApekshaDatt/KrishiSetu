@@ -32,5 +32,19 @@
     "category_welfare_and_direct_benefit_transfer_dbt": "Welfare and Direct Benefit Transfer (DBT)",
 
     "download_document": "Download Document",
-    "select_language":"Select Language"
+    "select_language":"Select Language",
+    "official_website": "Official Website",
+    "Ragi (Finger Millet)":"Ragi (Finger Millet)",
+    "Groundnut":"Groundnut",
+    "Maize":"Maize",
+    "Paddy (Rice)":"Paddy (Rice)",
+    "Tomato":"Tomato",
+    "Beans":"Beans",
+    "Coffee":"Coffee",
+    "Arecanut":"Arecanut",
+    "Pepper":"Pepper",
+    "Cardamom":"Cardamom",
+    "Cotton":"Cotton", 
+    "Red Gram (Tur)" :"Red Gram (Tur)",
+    "Jowar (Sorghum)":"Jowar (Sorghum)"
 }

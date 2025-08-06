@@ -22,9 +22,12 @@
                                         <h5>{{ scheme['name'] }}</h5>
                                         <p><strong>{{ translations.description_label }}:</strong> {{ scheme['description'] }}</p>
                                         <p><strong>{{ translations.eligibility_label }}:</strong> {{ scheme['eligibility'] }}</p>
-                                        {% if scheme.document_path %}
-                                    <a href="{{ url_for('static', filename=scheme.document_path) }}" class="btn btn-primary" target="_blank">{{ translations.download_document }}</a>
-                                {% endif %}
+                                        {% if scheme.document_url %}
+                                            <a href="{{ scheme.document_url }}" class="btn btn-primary" target="_blank">{{ translations.download_document }}</a>
+                                        {% endif %}
+                                        {% if scheme.website_url %}
+                                            <a href="{{ scheme.website_url }}" class="btn btn-primary" target="_blank" style="margin-left: 10px;">{{ translations.official_website }}</a>
+                                        {% endif %}
                                     </li>
                                 {% endfor %}
                             </ul>
