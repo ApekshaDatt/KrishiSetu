@@ -8,7 +8,8 @@
             <h2>{{ translations.soil_needs | default('Soil Needs') }}</h2>
             <p>{{ translations.soil_needs_desc | default('Information on soil types, nutrient requirements, and testing methods.') }}</p>
             <div class="video-container">
-                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/9AwaNU3R5c0?si=BRA0b2-OsYvJ61cj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/-0L2s9okVtk?si=EzZe-h0mX7iwG6F3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
 
@@ -16,7 +17,7 @@
             <h2>{{ translations.irrigation_practices | default('Irrigation Practices') }}</h2>
             <p>{{ translations.irrigation_practices_desc | default('Details on drip irrigation, sprinkler systems, and water management.') }}</p>
             <div class="video-container">
-                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/jDXGPw0VP6A?si=6sOoxDhB-tBVwxdy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
 
@@ -24,7 +25,7 @@
             <h2>{{ translations.seeds | default('Seeds') }}</h2>
             <p>{{ translations.seeds_desc | default('Guide to selecting high-quality seeds and seed treatment techniques.') }}</p>
             <div class="video-container">
-                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/FW_bw9jdrlQ?si=lfCCBZODtC3r0Rh5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
 
@@ -89,7 +90,8 @@
         .resources-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 10px;
+            width:900px;
         }
         .resource-item {
             flex: 1 1 calc(33.33% - 20px);
@@ -98,11 +100,13 @@
             box-sizing: border-box;
         }
         .video-container {
-            margin-top: 10px;
+            margin-top: 1px;
         }
         iframe {
             width: 100%;
-            height: 200px; /* Reduced height for better layout */
+            
+            height: 500px;
+            width:800px; 
         }
     </style>
 {% endblock %}

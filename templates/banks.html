@@ -2,61 +2,22 @@
 
 {% block content %}
     <h1>{{ translations.banks_title }}</h1>
-    <ul class="list-group">
-        <li class="list-group-item">
-            <h5>State Bank of India</h5>
-            <p><strong>Address:</strong> Main Branch, MG Road, Bangalore, Karnataka</p>
-            <p><strong>Contact:</strong> 1800-425-3800</p>
-        </li>
-        <li class="list-group-item">
-            <h5>Canara Bank</h5>
-            <p><strong>Address:</strong> Jayanagar Branch, Bangalore, Karnataka</p>
-            <p><strong>Contact:</strong> 1800-425-0018</p>
-        </li>
-        <li class="list-group-item">
-            <h5>Punjab National Bank</h5>
-            <p><strong>Address:</strong> Koramangala Branch, Bangalore, Karnataka</p>
-            <p><strong>Contact:</strong> 1800-180-2222</p>
-        </li>
-    </ul>
+    
     <div class="map">
-        <h2>Interactive Map</h2>
-        <h5>Explore Dodballapura on the map below:</h5>
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15538.583090691763!2d77.5302682!3d13.3768826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae24d67316719b%3A0x6b4c2b9b7e7c8a6e!2sDoddaballapura%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1719403185361!5m2!1sen!2sin" 
-            width="600" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <h2>{{translations.int_map}}</h2>
+        <h5>{{translations.map_dod}}</h5>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d25692.547944767408!2d77.52119791963334!3d13.288334243380994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sbanks%20in%20Doddaballapura%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1754475977188!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
      <div class="map">
         
-        <h5>Explore Chikkamagaluru on the map below:</h5>
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15538.583090691763!2d77.5302682!3d13.3768826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae24d67316719b%3A0x6b4c2b9b7e7c8a6e!2sChikkamagaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1719403185361!5m2!1sen!2sin" 
-            width="600" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <h5>{{translations.map_chik}}</h5>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31059.58083165647!2d75.74844635041204!3d13.32240968406329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sbanks%20in%20chikkamagaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1754476027091!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
     <div class="map">
         
-        <h5>Explore Raichur on the map below:</h5>
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15538.583090691763!2d77.5302682!3d13.3768826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae24d67316719b%3A0x6b4c2b9b7e7c8a6e!2sRaichur%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1719403185361!5m2!1sen!2sin" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <h5>{{translations.map_rai}}</h5>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d21484.853926355394!2d77.34160658609528!3d16.201111040763376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sbanks%20in%20raichur%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1754476067933!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 {% endblock %}

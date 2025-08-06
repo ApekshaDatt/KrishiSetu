@@ -91,5 +91,15 @@
     "explore_various_government_schemes_and_subsidies_available_for_farmers_across_different_categories": "Explore various government schemes and subsidies available for farmers across different categories.",
     "discover_crop_varieties_and_regional_agricultural_insights": "Discover crop varieties and regional agricultural insights.",
     "access_24/7_helpline_services_for_farmer_assistance": "Access 24/7 helpline services for farmer assistance.",
-    "find_nearby_banks_and_financial_support_options": "Find nearby banks and financial support options."
+    "find_nearby_banks_and_financial_support_options": "Find nearby banks and financial support options.",
+
+    
+   
+    "select_region_prompt": "Please select a region",
+    "int_map":"Interactive Map",
+
+    "map_dod":"Banks and Help Centres in Dodballapur",
+    "map_chik":"Banks and Help Centres in Chikkamagaluru",
+    "map_rai":"Banks and Help Centres in Chikkamagaluru"
+
 }
