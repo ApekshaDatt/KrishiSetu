@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ translations.crops_title }}</h1>
+    <form method="POST" class="mb-4">
+        <div class="mb-3">
+            <label for="region_id" class="form-label">{{ translations.select_region }}</label>
+            <select name="region_id" id="region_id" class="form-select" onchange="this.form.submit()">
+                <option value="" {% if not selected_region %}selected{% endif %} disabled>{{ translations.select_region }}</option>
+                {% for region in regions %}
+                    <option value="{{ region.id }}" {% if selected_region == region.id|string %}selected{% endif %}>
+                        {{ region.name_en }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+    </form>
+    {% if crops %}
+        <div class="row">
+            {% for crop in crops %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="{{ url_for('static', filename=crop.image_path) }}" class="card-img-top" alt="{{ crop.name_en }}" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <p class="text-muted">DEBUG: ID={{ crop['id']|default('None') }}</p>
+                            <h5 class="card-title">
+                                {% if crop['id'] %}
+                                    <a href="{{ url_for('crop_schemes', crop_id=crop['id'], lang=lang) }}">{{ crop['name_en'] }}</a>
+                                {% else %}
+                                    <span>{{ crop['name_en'] }} (No ID, schemes unavailable)</span>
+                                {% endif %}
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Please select a region to view crops.</p>
+    {% endif %}
+{% endblock %}

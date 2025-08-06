@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ translations.schemes_title }}</h1>
+    <div class="accordion" id="schemesAccordion">
+        {% for category, schemes in categorized_schemes.items() %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading-{{ loop.index }}">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+                            data-bs-target="#collapse-{{ loop.index }}" aria-expanded="true" 
+                            aria-controls="collapse-{{ loop.index }}">
+                        {{ translations['category_' + category|replace(' ', '_')|replace('(', '')|replace(')', '')|replace('.', '')|replace(',', '')|lower] or category }}
+                    </button>
+                </h2>
+                <div id="collapse-{{ loop.index }}" class="accordion-collapse collapse show" 
+                     aria-labelledby="heading-{{ loop.index }}" data-bs-parent="#schemesAccordion">
+                    <div class="accordion-body">
+                        {% if schemes %}
+                            <ul class="list-group">
+                                {% for scheme in schemes %}
+                                    <li class="list-group-item">
+                                        <h5>{{ scheme['name'] }}</h5>
+                                        <p><strong>{{ translations.description_label }}:</strong> {{ scheme['description'] }}</p>
+                                        <p><strong>{{ translations.eligibility_label }}:</strong> {{ scheme['eligibility'] }}</p>
+                                        {% if scheme.document_path %}
+                                    <a href="{{ url_for('static', filename=scheme.document_path) }}" class="btn btn-primary" target="_blank">{{ translations.download_document }}</a>
+                                {% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>No schemes available in this category.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

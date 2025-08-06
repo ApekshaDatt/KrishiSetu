@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ translations.helplines_title }}</h1>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <h5>Kisan Call Centre</h5>
+            <p><strong>Number:</strong> 1800-180-1551</p>
+            <p><strong>Description:</strong> {{ translations.helpline_kisan_desc }}</p>
+        </li>
+        <li class="list-group-item">
+            <h5>PM-KISAN Helpline</h5>
+            <p><strong>Number:</strong> 155261 / 011-24300606</p>
+            <p><strong>Description:</strong> {{ translations.helpline_pmkisan_desc }}</p>
+        </li>
+        <li class="list-group-item">
+            <h5>Agriculture Ministry Helpline</h5>
+            <p><strong>Number:</strong> 011-24300607</p>
+            <p><strong>Description:</strong> {{ translations.helpline_ministry_desc }}</p>
+        </li>
+    </ul>
+{% endblock %}
