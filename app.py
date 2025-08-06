@@ -109,29 +109,42 @@ def crops():
     cursor = conn.cursor()
    
     # Get regions
-    cursor.execute('SELECT id, name_en FROM regions')
+    if lang == 'en':
+        cursor.execute('SELECT id, name_en AS name FROM regions')
+    else:
+        cursor.execute('''
+            SELECT r.id, COALESCE(rt.name, r.name_en) AS name
+            FROM regions r
+            LEFT JOIN region_translations rt ON r.id = rt.region_id AND rt.language = ?
+        ''', (lang,))
     regions = cursor.fetchall()
    
     # Get selected region
     region_id = request.form.get('region_id') if request.method == 'POST' else None
     crops = []
     if region_id:
-        cursor.execute('''
-            SELECT id, name_en, image_path
-            FROM crops
-            WHERE region_id = ?
-        ''', (region_id,))
+        if lang == 'en':
+            cursor.execute('''
+                SELECT c.id, c.name_en AS name, c.image_path
+                FROM crops c
+                WHERE c.region_id = ?
+            ''', (region_id,))
+        else:
+            cursor.execute('''
+                SELECT c.id, COALESCE(ct.name, c.name_en) AS name, c.image_path
+                FROM crops c
+                LEFT JOIN crop_translations ct ON c.id = ct.crop_id AND ct.language = ?
+                WHERE c.region_id = ?
+            ''', (lang, region_id))
         crops = cursor.fetchall()
         for crop in crops:
             if not crop['id']:
-                print(f"Warning: Crop with name_en={crop['name_en']} has no ID")
+                print(f"Warning: Crop with name={crop['name']} has no ID")
                 print(f"Crops fetched: {[dict(c) for c in crops]}")
-   
+
     conn.close()
     return render_template('crops.html', translations=translations, regions=regions,
                           crops=crops, selected_region=region_id, lang=lang)
-
-
 
 
 @app.route('/crop_schemes/<int:crop_id>')

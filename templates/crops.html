@@ -9,7 +9,7 @@
                 <option value="" {% if not selected_region %}selected{% endif %} disabled>{{ translations.select_region }}</option>
                 {% for region in regions %}
                     <option value="{{ region.id }}" {% if selected_region == region.id|string %}selected{% endif %}>
-                        {{ region.name_en }}
+                        {{ region.name }}
                     </option>
                 {% endfor %}
             </select>
@@ -20,14 +20,14 @@
             {% for crop in crops %}
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <img src="{{ url_for('static', filename=crop.image_path) }}" class="card-img-top" alt="{{ crop.name_en }}" style="height: 200px; object-fit: cover;">
+                        <img src="{{ url_for('static', filename=crop.image_path) }}" class="card-img-top" alt="{{ crop.name }}" style="height: 200px; object-fit: cover;">
                         <div class="card-body">
                             <p class="text-muted"></p>
                             <h5 class="card-title">
                                 {% if crop['id'] %}
-                                    <a href="{{ url_for('crop_schemes', crop_id=crop['id'], lang=lang) }}">{{ crop['name_en'] }}</a>
+                                    <a href="{{ url_for('crop_schemes', crop_id=crop['id'], lang=lang) }}">{{ crop['name'] }}</a>
                                 {% else %}
-                                    <span>{{ crop['name_en'] }} (No ID, schemes unavailable)</span>
+                                    <span>{{ crop['name'] }} (No ID, schemes unavailable)</span>
                                 {% endif %}
                             </h5>
                         </div>
@@ -36,6 +36,6 @@
             {% endfor %}
         </div>
     {% else %}
-        <p>Please select a region to view crops.</p>
+        <p>{{translations.select_regions}}</p>
     {% endif %}
 {% endblock %}

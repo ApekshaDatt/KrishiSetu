@@ -71,6 +71,18 @@ cursor.execute('''
     )
 ''')
 
+###
+# Create region_translations table
+cursor.execute('''
+    CREATE TABLE region_translations (
+        region_id INTEGER,
+        language TEXT NOT NULL,
+        name TEXT NOT NULL,
+        FOREIGN KEY (region_id) REFERENCES regions(id),
+        PRIMARY KEY (region_id, language)
+    )
+''')
+
 # Create crop_schemes table (many-to-many)
 cursor.execute('''
     CREATE TABLE crop_schemes (
@@ -89,6 +101,21 @@ regions = [
     ('Raichur',)
 ]
 cursor.executemany('INSERT INTO regions (name_en) VALUES (?)', regions)
+###
+# Insert region translations
+region_translations = [
+    (1, 'hi', 'दोडबल्लापुर'),  # Dodballapura in Hindi
+    (1, 'kn', 'ದೊಡ್ಡಬಳ್ಳಾಪುರ'),  # Dodballapura in Kannada
+    (2, 'hi', 'चिक्कमगलुरु'),  # Chikkamagaluru in Hindi
+    (2, 'kn', 'ಚಿಕ್ಕಮಗಳೂರು'),  # Chikkamagaluru in Kannada
+    (3, 'hi', 'रायचूर'),  # Raichur in Hindi
+    (3, 'kn', 'ರಾಯಚೂರು')  # Raichur in Kannada
+]
+cursor.executemany('''
+    INSERT INTO region_translations (region_id, language, name)
+    VALUES (?, ?, ?)
+''', region_translations)
+
 
 # Insert schemes (from previous + new from document)
 schemes = [
@@ -270,40 +297,40 @@ cursor.executemany('''
 
 #crop translations
 hi_tran=[
-    (1,'hi','Ragi (Finger Millet)', 'images/crops/ragi.jpg', 1),  # Dodballapura
-    (2,'hi','Groundnut', 'images/crops/groundnut.jpg', 1),
-    (3,'hi','Maize', 'images/crops/maize.jpg', 1),
-    (4,'hi','Paddy (Rice)', 'images/crops/paddy.jpg', 1),
-    (5,'hi','Tomato', 'images/crops/tomato.jpg', 1),
-    (6,'hi','Beans', 'images/crops/beans.jpg', 1),
-    (7,'hi','Coffee', 'images/crops/coffee.jpg', 2),  # Chikkamagaluru
-    (8,'hi','Arecanut', 'images/crops/arecanut.jpg', 2),
-    (9,'hi','Pepper', 'images/crops/pepper.jpg', 2),
-    (10,'hi','Cardamom', 'images/crops/cardamom.jpg', 2),
-    (11,'hi','Paddy (Rice)', 'images/crops/paddy.jpg', 2),
-    (12,'hi','Cotton', 'images/crops/cotton.jpg', 3),  # Raichur
-    (13,'hi','Paddy (Rice)', 'images/crops/paddy.jpg', 3),
-    (14,'hi','Red Gram (Tur)', 'images/crops/red_gram.jpg', 3),
-    (15,'hi','Jowar (Sorghum)', 'images/crops/jowar.jpg', 3),
-    (16,'hi','Groundnut', 'images/crops/groundnut.jpg', 3)
+    (1,'hi','नाचनी', 'images/crops/ragi.jpg', 1),  # Dodballapura
+    (2,'hi','मूंगफली', 'images/crops/groundnut.jpg', 1),
+    (3,'hi','मक्का', 'images/crops/maize.jpg', 1),
+    (4,'hi','चावल (धान)', 'images/crops/paddy.jpg', 1),
+    (5,'hi','टमाटर', 'images/crops/tomato.jpg', 1),
+    (6,'hi','बीन्स', 'images/crops/beans.jpg', 1),
+    (7,'hi','कॉफी', 'images/crops/coffee.jpg', 2),  # Chikkamagaluru
+    (8,'hi','सुपारी', 'images/crops/arecanut.jpg', 2),
+    (9,'hi','काली मिर्च', 'images/crops/pepper.jpg', 2),
+    (10,'hi','इलायची', 'images/crops/cardamom.jpg', 2),
+    (11,'hi','चावल (धान)', 'images/crops/paddy.jpg', 2),
+    (12,'hi','कपास', 'images/crops/cotton.jpg', 3),  # Raichur
+    (13,'hi','चावल (धान)', 'images/crops/paddy.jpg', 3),
+    (14,'hi','अरहर (तूर)', 'images/crops/red_gram.jpg', 3),
+    (15,'hi','ज्वार', 'images/crops/jowar.jpg', 3),
+    (16,'hi','मूंगफली', 'images/crops/groundnut.jpg', 3)
 ]
 kn_tran=[
-    (1,'kn','Ragi (Finger Millet)', 'images/crops/ragi.jpg', 1),  # Dodballapura
-    (2,'kn','Groundnut', 'images/crops/groundnut.jpg', 1),
-    (3,'kn','Maize', 'images/crops/maize.jpg', 1),
-    (4,'kn','Paddy (Rice)', 'images/crops/paddy.jpg', 1),
-    (5,'kn','Tomato', 'images/crops/tomato.jpg', 1),
-    (6,'kn','Beans', 'images/crops/beans.jpg', 1),
-    (7,'kn','Coffee', 'images/crops/coffee.jpg', 2),  # Chikkamagaluru
-    (8,'kn','Arecanut', 'images/crops/arecanut.jpg', 2),
-    (9,'kn','Pepper', 'images/crops/pepper.jpg', 2),
-    (10,'kn','Cardamom', 'images/crops/cardamom.jpg', 2),
-    (11,'kn','Paddy (Rice)', 'images/crops/paddy.jpg', 2),
-    (12,'kn','Cotton', 'images/crops/cotton.jpg', 3),  # Raichur
-    (13,'kn','Paddy (Rice)', 'images/crops/paddy.jpg', 3),
-    (14,'kn','Red Gram (Tur)', 'images/crops/red_gram.jpg', 3),
-    (15,'kn','Jowar (Sorghum)', 'images/crops/jowar.jpg', 3),
-    (16,'kn','Groundnut', 'images/crops/groundnut.jpg', 3)
+    (1,'kn','ರಾಗಿ', 'images/crops/ragi.jpg', 1),  # Dodballapura
+    (2,'kn','ಕಡಲೆಕಾಯಿ', 'images/crops/groundnut.jpg', 1),
+    (3,'kn','ಜೋಳ', 'images/crops/maize.jpg', 1),
+    (4,'kn','ಅಕ್ಕಿ (ಬತ್ತ)', 'images/crops/paddy.jpg', 1),
+    (5,'kn','ಟೊಮೆಟೊ', 'images/crops/tomato.jpg', 1),
+    (6,'kn','ಹುರಿಕಾಳು', 'images/crops/beans.jpg', 1),
+    (7,'kn','ಕಾಫಿ', 'images/crops/coffee.jpg', 2),  # Chikkamagaluru
+    (8,'kn','ಅಡಿಕೆ', 'images/crops/arecanut.jpg', 2),
+    (9,'kn','ಕಪ್ಪು ಮೆಣಸು', 'images/crops/pepper.jpg', 2),
+    (10,'kn','ಏಲಕ್ಕಿ', 'images/crops/cardamom.jpg', 2),
+    (11,'kn','ಅಕ್ಕಿ (ಬತ್ತ)', 'images/crops/paddy.jpg', 2),
+    (12,'kn','ಬತ್ತೆ', 'images/crops/cotton.jpg', 3),  # Raichur
+    (13,'kn','ಅಕ್ಕಿ (ಬತ್ತ)', 'images/crops/paddy.jpg', 3),
+    (14,'kn','ತೊಗರಿ ಬೆಳೆ', 'images/crops/red_gram.jpg', 3),
+    (15,'kn','ಜೋಳ', 'images/crops/jowar.jpg', 3),
+    (16,'kn','ಕಡಲೆಕಾಯಿ', 'images/crops/groundnut.jpg', 3)
 ]
 # Insert translations
 cursor.executemany('''

@@ -35,7 +35,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        {{ translations.get(lang, 'Select Language') }}
+        {{ translations.get(lang, translations.select_language) }}
     </a>
     <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="languageDropdown">
         {% set args = request.args.to_dict(flat=False) %}
