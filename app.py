@@ -162,10 +162,19 @@ def crop_schemes(crop_id):
     conn = get_db_connection()
     cursor = conn.cursor()
    
-    # Get crop name
-    cursor.execute('SELECT name_en FROM crops WHERE id = ?', (crop_id,))
+  # Get crop name with translation
+    if lang == 'en':
+        cursor.execute('SELECT name_en FROM crops WHERE id = ?', (crop_id,))
+    else:
+        cursor.execute('''
+            SELECT COALESCE(ct.name, c.name_en) AS name
+            FROM crops c
+            LEFT JOIN crop_translations ct ON c.id = ct.crop_id AND ct.language = ?
+            WHERE c.id = ?
+        ''', (lang, crop_id))
     crop = cursor.fetchone()
-    crop_name = crop['name_en'] if crop else 'Unknown Crop'
+    crop_name = crop[0] if crop else 'Unknown Crop'
+
    
 # Get schemes for the crop
     if lang == 'en':
