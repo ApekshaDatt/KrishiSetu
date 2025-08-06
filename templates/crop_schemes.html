@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ translations.crop_schemes_title }}: {{ translations.crop_name }}</h1>
+    <h1>{{translations.crop_schemes_title}}:{{crop_name}}</h1>
     <div class="accordion" id="cropSchemesAccordion">
         {% for scheme in schemes %}
             <div class="accordion-item">
