@@ -36,7 +36,12 @@ def load_translations(lang):
             'select_region',
             'crop_schemes_title',
             'download_document',
-            'select_language'
+            'select_language',
+            'num',
+            'desc',
+            'kcc',
+            'pmkisan',
+            'agri'
         ]
         for key in required_keys:
             if key not in translations:
@@ -54,6 +59,12 @@ def index():
     translations = load_translations(lang)
     return render_template('index.html', translations=translations, lang=lang)
 
+###
+@app.route('/resources')
+def resources():
+    lang = request.args.get('lang', 'en')
+    translations = load_translations(lang)
+    return render_template('resources.html', translations=translations, lang=lang)
 
 @app.route('/schemes')
 def schemes():

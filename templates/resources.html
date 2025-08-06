@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ translations.resources_title | default('Resources') }}</h1>
+
+    <div class="resources-list">
+        <div class="resource-item">
+            <h2>{{ translations.soil_needs | default('Soil Needs') }}</h2>
+            <p>{{ translations.soil_needs_desc | default('Information on soil types, nutrient requirements, and testing methods.') }}</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="resource-item">
+            <h2>{{ translations.irrigation_practices | default('Irrigation Practices') }}</h2>
+            <p>{{ translations.irrigation_practices_desc | default('Details on drip irrigation, sprinkler systems, and water management.') }}</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="resource-item">
+            <h2>{{ translations.seeds | default('Seeds') }}</h2>
+            <p>{{ translations.seeds_desc | default('Guide to selecting high-quality seeds and seed treatment techniques.') }}</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="resource-item">
+            <h2>{{ translations.finance | default('Finance') }}</h2>
+            <p>{{ translations.finance_desc | default('Information on agricultural loans, subsidies, and financial planning.') }}</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="resource-item">
+            <h2>{{ translations.pest_control | default('Pest Control') }}</h2>
+            <p>{{ translations.pest_control_desc | default('Methods for managing pests and diseases in crops.') }}</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="resource-item">
+            <h2>{{ translations.fertilizers | default('Fertilizers') }}</h2>
+            <p>{{ translations.fertilizers_desc | default('Types of fertilizers and their application techniques.') }}</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="resource-item">
+            <h2>{{ translations.crop_rotation | default('Crop Rotation') }}</h2>
+            <p>{{ translations.crop_rotation_desc | default('Benefits and strategies for rotating crops.') }}</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="resource-item">
+            <h2>{{ translations.harvesting_techniques | default('Harvesting Techniques') }}</h2>
+            <p>{{ translations.harvesting_techniques_desc | default('Best practices for harvesting and post-harvest management.') }}</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="resource-item">
+            <h2>{{ translations.livestock_management | default('Livestock Management') }}</h2>
+            <p>{{ translations.livestock_management_desc | default('Care and management of livestock in farming.') }}</p>
+            <div class="video-container">
+                <iframe width="1000" height="500" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="resource-item">
+            <h2>{{ translations.market_trends | default('Market Trends') }}</h2>
+            <p>{{ translations.market_trends_desc | default('Latest trends and tips for selling agricultural produce.') }}</p>
+            <div class="video-container">
+                <iframe width="1000" height="500" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .resources-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .resource-item {
+            flex: 1 1 calc(33.33% - 20px);
+            border: 2px solid #6cb20a;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .video-container {
+            margin-top: 10px;
+        }
+        iframe {
+            width: 100%;
+            height: 200px; /* Reduced height for better layout */
+        }
+    </style>
+{% endblock %}

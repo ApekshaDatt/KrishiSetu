@@ -35,6 +35,13 @@
     "select_language":"Select Language",
     "select_regions":"Please select a region to view crops.",
     "official_website": "Official Website",
+    "num":"Number",
+    "desc":"Description",
+    "kcc":"Kisan Call Centre",
+    "pmkisan":"PM-KISAN Helpline",
+    "agri":"Agriculture Ministry Helpline",
+
+
     "Ragi (Finger Millet)":"Ragi (Finger Millet)",
     "Groundnut":"Groundnut",
     "Maize":"Maize",
@@ -47,5 +54,34 @@
     "Cardamom":"Cardamom",
     "Cotton":"Cotton", 
     "Red Gram (Tur)" :"Red Gram (Tur)",
-    "Jowar (Sorghum)":"Jowar (Sorghum)"
+    "Jowar (Sorghum)":"Jowar (Sorghum)",
+
+
+    
+    "resources_title": "Resources",
+    "soil_needs": "Soil Needs",
+    "soil_needs_desc": "Information on soil types, nutrient requirements, and testing methods.",
+    "irrigation_practices": "Irrigation Practices",
+    "irrigation_practices_desc": "Details on drip irrigation, sprinkler systems, and water management.",
+    "seeds": "Seeds",
+    "seeds_desc": "Guide to selecting high-quality seeds and seed treatment techniques.",
+    "finance": "Finance",
+    "finance_desc": "Information on agricultural loans, subsidies, and financial planning.",
+    "pest_control": "Pest Control",
+    "pest_control_desc": "Methods for managing pests and diseases in crops.",
+    "fertilizers": "Fertilizers",
+    "fertilizers_desc": "Types of fertilizers and their application techniques.",
+    "crop_rotation": "Crop Rotation",
+    "crop_rotation_desc": "Benefits and strategies for rotating crops.",
+    "harvesting_techniques": "Harvesting Techniques",
+    "harvesting_techniques_desc": "Best practices for harvesting and post-harvest management.",
+    "livestock_management": "Livestock Management",
+    "livestock_management_desc": "Care and management of livestock in farming.",
+    "market_trends": "Market Trends",
+    "market_trends_desc": "Latest trends and tips for selling agricultural produce.",
+    "enter_youtube_url": "Enter YouTube URL",
+    "update_video": "Update Video",
+    "nav_resources": "Resources"
+
+
 }

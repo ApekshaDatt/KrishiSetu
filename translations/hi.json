@@ -34,6 +34,13 @@
     "select_language":"भाषा चुने",
     "official_website": "आधिकारिक वेबसाइट",
     "select_regions":"कृपया फ़सलों को देखने के लिए एक क्षेत्र चुनें।",
+    "num":"नंबर ",
+    "desc":"विवरण",
+    "kcc":"किसान कॉल सेंटर",
+    "pmkisan":"पीएम-किसान हेल्पलाइन",
+    "agri":"कृषि मंत्रालय हेल्पलाइन",
+
+
     "Ragi (Finger Millet)": "Ragi (नाचनी)",
         "Groundnut": "मूंगफली",
         "Maize": "मक्का",
@@ -46,5 +53,34 @@
         "Cardamom": "इलायची",
         "Cotton": "कपास",
         "Red Gram (Tur)": "अरहर (तूर)",
-        "Jowar (Sorghum)": "ज्वार"
+        "Jowar (Sorghum)": "ज्वार",
+
+    
+    
+    "resources_title": "संसाधन",
+    "soil_needs": "मिट्टी की आवश्यकताएँ",
+    "soil_needs_desc": "मिट्टी के प्रकारों, पोषक तत्वों की आवश्यकताओं, और परीक्षण विधियों के बारे में जानकारी।",
+    "irrigation_practices": "सिंचाई प्रथाएँ",
+    "irrigation_practices_desc": "ड्रिप सिंचाई, स्प्रिंकलर सिस्टम, और जल प्रबंधन के बारे में विवरण।",
+    "seeds": "बीज",
+    "seeds_desc": "उच्च गुणवत्ता वाले बीजों के चयन और बीज उपचार तकनीकों का मार्गदर्शन।",
+    "finance": "वित्त",
+    "finance_desc": "कृषि ऋण, सब्सिडी, और वित्तीय योजना के बारे में जानकारी।",
+    "pest_control": "कीट नियंत्रण",
+    "pest_control_desc": "फसलों में कीटों और बीमारियों के प्रबंधन के तरीके।",
+    "fertilizers": "उर्वरक",
+    "fertilizers_desc": "उर्वरकों के प्रकार और उनके उपयोग की तकनीकें।",
+    "crop_rotation": "फसल चक्रण",
+    "crop_rotation_desc": "फसल चक्रण के लाभ और रणनीतियाँ।",
+    "harvesting_techniques": "कटाई तकनीकें",
+    "harvesting_techniques_desc": "कटाई और फसल के बाद प्रबंधन के सर्वोत्तम अभ्यास।",
+    "livestock_management": "पशु प्रबंधन",
+    "livestock_management_desc": "कृषि में पशुओं की देखभाल और प्रबंधन।",
+    "market_trends": "बाजार के रुझान",
+    "market_trends_desc": "कृषि उत्पादों की बिक्री के लिए नवीनतम रुझान और सुझाव।",
+    "enter_youtube_url": "YouTube URL दर्ज करें",
+    "update_video": "वीडियो अपडेट करें",
+    "nav_resources": "संसाधन"
+
+
 }
